@@ -19,9 +19,11 @@ public class Classe {
     public Classe(int idClasse, String nomClasse, Niveaux niveauClasse,AnneScolaire anneScolaire){
         this( idClasse, nomClasse, niveauClasse, anneScolaire, new ArrayList<>());
     }
-    public Classe(String[] params){
-        this(Integer.parseInt(params[0]),params[1],new Niveaux(params[2]), new AnneScolaire(params[3]));
+
+    public Classe(String nomClasse, Niveaux niveauClasse,AnneScolaire anneScolaire){
+        this( -1, nomClasse, niveauClasse, anneScolaire, new ArrayList<>());
     }
+
 
     public void addEleve(Eleve eleve){
         this.eleveArrayList.add(eleve);
@@ -30,6 +32,18 @@ public class Classe {
     @Override
     public String toString() {
         return "Id : "+idClasse+ " nom Classe : " +nomClasse + " anneee"  +anneScolaire.getAnneScolaire()+ " nbr eleves : "+eleveArrayList.size();
+    }
+
+    public String getNomClasse() {
+        return nomClasse;
+    }
+
+    public String getAnneScolaire() {
+        return anneScolaire.getAnneScolaire();
+    }
+
+    public String getNiveauClasse() {
+        return niveauClasse.getNiveau();
     }
 }
 

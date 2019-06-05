@@ -134,6 +134,18 @@ public class Connexion {
 
         // récupération du résultat de l'ordre
         rsetMeta = rset.getMetaData();
+        DatabaseMetaData metaData = conn.getMetaData();
+        ResultSet resultSet = metaData.getImportedKeys(conn.getCatalog(),null,"trimestre");
+        while (resultSet.next()){
+
+            String fkTableName = resultSet.getString("FK_NAME");
+            String fkColumnName = resultSet.getString("FKCOLUMN_NAME");
+            int fkSequence = resultSet.getInt("KEY_SEQ");
+
+            System.out.println("getExportedKeys(): fkTableName="+fkTableName);
+            System.out.println("getExportedKeys(): fkColumnName="+fkColumnName);
+            System.out.println("getExportedKeys():"+fkSequence);
+        }
 
         // calcul du nombre de colonnes du resultat
         int nbColonne = rsetMeta.getColumnCount();
@@ -174,5 +186,34 @@ public class Connexion {
     }
     public void execute(String requete) throws SQLException {
         stmt.execute(requete);
+    }
+
+    public ResultSetMetaData getRsetMeta(String requete) throws SQLException {
+
+        rset = stmt.executeQuery(requete);
+
+        return rset.getMetaData();
+    }
+
+    public Connection getConn() {
+        return conn;
+    }
+    public ArrayList getFKColoumnName(String requete) throws SQLException{
+        ArrayList arrayList = new ArrayList();
+        rset = stmt.executeQuery(requete);
+        DatabaseMetaData metaData = conn.getMetaData();
+        ResultSet resultSet = metaData.getImportedKeys(conn.getCatalog(),null,"trimestre");
+        while (resultSet.next()){
+            arrayList.add( resultSet.getString("FKCOLUMN_NAME"));
+        }
+        return arrayList;
+    }
+    public ArrayList getFKeyData(String tableName, int i) throws SQLException {
+       ArrayList arrayList = new ArrayList();
+        DatabaseMetaData dm = conn.getMetaData();
+        ResultSet rs = dm.getImportedKeys(null, null, tableName);
+        while (rs.next()) {
+        }
+        return arrayList;
     }
 }
