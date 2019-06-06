@@ -17,4 +17,19 @@ public class DetailBulletin {
         this.enseignant = enseignant;
         this.evaluationArrayList= evaluationArrayList;
     }
+    public DetailBulletin(int idBultin, Enseignant enseignant){
+        this(-1,idBultin,enseignant,"",null);
+    }
+
+    public Enseignant getEnseignant() {
+        return enseignant;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getIdBultin() {
+        return idBultin;
+    }
 }

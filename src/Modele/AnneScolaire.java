@@ -30,29 +30,22 @@ public class AnneScolaire implements Serializable {
     public String toString() {
         return anneScolaire;
     }
-    public static AnneScolaire deserialize() {
+    public static AnneScolaire deserialize() throws IOException, ClassNotFoundException {
         AnneScolaire anneScolaire = null;
-       try {
+
            FileInputStream fileInputStream = new FileInputStream("anneEnCours");
            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             anneScolaire = (AnneScolaire) objectInputStream.readObject();
            objectInputStream.close();
-       }catch (IOException | ClassNotFoundException e){
-           e.printStackTrace();
-       }
         return anneScolaire;
 
     }
-    public void serialize()  {
-        try {
+    public void serialize() throws  IOException  {
+
             FileOutputStream fileOutputStream = new FileOutputStream("anneEnCours") ;
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(this);
             objectOutputStream.flush();
             objectOutputStream.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
     }
 }

@@ -38,9 +38,7 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
             ResultSet resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery(
                     "SELECT * FROM eleve WHERE id = "+id);
-            System.out.println("e");
             if (resultSet.first()){
-                System.out.println("e");
                 eleve = new Eleve(resultSet.getInt("id"),resultSet.getString("nom"),resultSet.getString("prenom"));
             }
 
@@ -97,6 +95,14 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
         try {
             String requete = "INSERT INTO inscription (classe, eleve) VALUES ('"+idClasse+"','"+ eleve.getId()+"')";
             this.getConnexion().execute(requete);
+
+            ResultSet resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY).executeQuery(
+                    "SELECT id FROM inscription WHERE eleve = "+eleve.getId());
+            if (resultSet.first()){
+                new ModelControlleurBultin().create(resultSet.getInt("id"));
+            }
+
         }catch (SQLException e){
             System.out.println(e);
         }

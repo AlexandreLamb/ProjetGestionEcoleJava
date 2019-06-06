@@ -13,6 +13,22 @@ public class Evaluation {
         this.id = id;
     }
 
+    public double getNote() {
+        return note;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getDetailBultinId() {
+        return detailBultinId;
+    }
+
+    public String getAppreciation() {
+        return appreciation;
+    }
+
     @Override
     public String toString() {
         return "bultin id  : " + detailBultinId  + " note : " + note + " appreciaiton : "  + appreciation;

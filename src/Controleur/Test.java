@@ -17,6 +17,8 @@ public class Test {
         arrayList.add(4);
 
 
+
+
        /*   ModeleControlleurEleve modeleControlleur = new ModeleControlleurEleve();
         ArrayList<Eleve> eleveArrayList = modeleControlleur.findAll();
         for (int i =0 ; i < eleveArrayList.size() ; i++ ){
@@ -35,8 +37,9 @@ public class Test {
 
         ArrayList<Classe> classeArrayList = modeleControleurClasse.findAll();
 
+
         for (int i =0 ; i < classeArrayList.size() ; i++ ){
-            System.out.println(classeArrayList.get(i).toString() );
+            //System.out.println(classeArrayList.get(i).toString() );
         }
       /*  ModeleControlleurEvaluation modeleControlleurEvaluation = new ModeleControlleurEvaluation();
         ArrayList<Evaluation> evaluationArrayList = modeleControlleurEvaluation.getAllLigneByTable("evaluation");

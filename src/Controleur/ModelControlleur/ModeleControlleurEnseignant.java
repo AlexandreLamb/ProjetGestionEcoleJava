@@ -13,7 +13,25 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
 
     @Override
     public Enseignant find(int id) {
-        return null;
+        Enseignant enseignant = null;
+
+        try {
+            ResultSet resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY).executeQuery(
+                    "SELECT * FROM enseignant WHERE id = " + id);
+            if (resultSet.first()){
+                int idEnseignant = resultSet.getInt("id");
+                String nom = resultSet.getString("nom");
+                String prenom = resultSet.getString("prenom");
+                Classe classe = getClasseEnseignant(resultSet.getInt(("Classe.id")));
+                Discipline discipline = getDisciplineEnseignant(resultSet.getInt("id"));
+                enseignant = new Enseignant(idEnseignant,nom,prenom,discipline,classe);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return enseignant;
     }
 
     @Override
@@ -51,7 +69,17 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
 
     @Override
     public void create(Enseignant obj) {
+        try {
+            String requete = "INSERT INTO enseignant (nom, prenom,`Classe.id`,`Discipline.id`) " +
+                    "VALUES ('"+obj.getNom()+"','"+ obj.getPrenom() +"','"+obj.getClasse().getIdClasse()+"','"+obj.getDisciplineEnseignant().getId()+"')";
+            this.connexion.getConn().createStatement().executeUpdate(requete);
 
+
+            addEnseignement(findLastInstertion());
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }
     }
 
     public Discipline getDisciplineEnseignant(int idEnseignant){
@@ -93,5 +121,51 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
             e.printStackTrace();
         }
         return idClasse;
+    }
+
+    void addEnseignement(Enseignant enseignant){
+        try {
+            String requete = "INSERT INTO enseignement (enseignantId, classeId) VALUES ('"+enseignant.getId()+"','"+ enseignant.getClasse().getIdClasse()+"')";
+            System.out.println(requete);
+            this.getConnexion().execute(requete);
+
+            ResultSet resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY).executeQuery(
+                    "SELECT bulletin.id FROM bulletin\n" +
+                            "INNER JOIN inscription\n" +
+                            "on inscription.id = bulletin.`inscription.id`\n" +
+                            "INNER JOIN classe \n" +
+                            "on classe.id = inscription.classe\n" +
+                            "INNER JOIN enseignement\n" +
+                            "ON enseignement.classeId = classe.id\n" +
+                            "WHERE enseignement.enseignantId ="+enseignant.getId());
+            while (resultSet.next()){
+                new ModeleControleurDetailBultin().create(new DetailBulletin(resultSet.getInt("bulletin.id"),enseignant));
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    Enseignant findLastInstertion(){
+        Enseignant enseignant = null;
+       try {
+           ResultSet resultSet = this.getConnexion().getConn().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                   ResultSet.CONCUR_READ_ONLY).executeQuery(
+                   "SELECT id,nom,prenom,`Classe.id` FROM enseignant order by id desc");
+           if (resultSet.first()) {
+               int idEnseignant = resultSet.getInt("id");
+               String nom = resultSet.getString("nom");
+               String prenom = resultSet.getString("prenom");
+               Classe classe = getClasseEnseignant(resultSet.getInt(("Classe.id")));
+               Discipline discipline = getDisciplineEnseignant(resultSet.getInt("id"));
+               enseignant = new Enseignant(idEnseignant, nom, prenom, discipline, classe);
+           }
+       }
+       catch (SQLException e ){
+           e.printStackTrace();
+       }
+        return enseignant;
     }
 }

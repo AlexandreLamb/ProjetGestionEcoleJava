@@ -4,7 +4,7 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
 
-public class Trimestre {
+public class Trimestre implements Serializable {
     private AnneScolaire anneScolaire;
     private String debut;
     private String fin;
@@ -41,31 +41,25 @@ public class Trimestre {
 
     @Override
     public String toString() {
-        return "Numero : " +numero + " debut : " + debut + " fin :"+fin + " annee Scolaire : " + anneScolaire.getAnneScolaire() ;
+        return "id : " +id + " debut : " + debut + " fin :"+fin  ;
     }
-    public static Trimestre deserialize() {
+    public static Trimestre deserialize(String string) throws IOException, ClassNotFoundException {
         Trimestre trimestre = null;
-        try {
-            FileInputStream fileInputStream = new FileInputStream("trimestreEnCours");
+            FileInputStream fileInputStream = new FileInputStream(string);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             trimestre = (Trimestre) objectInputStream.readObject();
             objectInputStream.close();
-        }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
-        }
+
 
         return trimestre ;
     }
-    public void serialize()  {
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream("trimestreEnCours") ;
+    public void serialize(String string) throws IOException  {
+            FileOutputStream fileOutputStream = new FileOutputStream(string) ;
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(this);
             objectOutputStream.flush();
             objectOutputStream.close();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+
 
     }
 }

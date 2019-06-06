@@ -19,6 +19,14 @@ public class Enseignant extends Personne {
         }
     }
 
+    public Discipline getDisciplineEnseignant() {
+        return disciplineEnseignant;
+    }
+
+    public Classe getClasse() {
+        return classe;
+    }
+
     @Override
     public int getId() {
         return super.getId();

@@ -1,6 +1,9 @@
 package Modele;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Classe {
     private int idClasse;
@@ -44,6 +47,31 @@ public class Classe {
 
     public String getNiveauClasse() {
         return niveauClasse.getNiveau();
+    }
+
+    public int getIdClasse() {
+        return idClasse;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if (obj instanceof String){
+           return false;
+       }
+       else if(obj instanceof Classe) {
+            Classe classe = (Classe) obj;
+            if (this.nomClasse.equals(classe.getNomClasse())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.nomClasse);
+        return hash;
     }
 }
 

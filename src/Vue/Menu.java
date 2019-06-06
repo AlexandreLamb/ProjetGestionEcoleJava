@@ -1,17 +1,14 @@
 package Vue;
 
 import Controleur.ModelControlleur.*;
-import Controleur.VueControlleur.JcomboBoxVue;
 import Controleur.VueControlleur.VueContrlleurEnseignant;
 import Controleur.VueControlleur.VueControlleurEleve;
 import Modele.*;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.color.CMMException;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.Vector;
+import java.io.IOException;
 
 public class Menu {
     private JButton deleteButton;
@@ -40,15 +37,15 @@ public class Menu {
     private JComboBox professeurCombo;
     private JComboBox eleveCombo;
     private JFormattedTextField formattedTextField6;
-    private JFormattedTextField formattedTextField4;
-    private JFormattedTextField formattedTextField5;
-    private JFormattedTextField formattedTextField7;
-    private JComboBox formattedTextField8;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
+    private JFormattedTextField idEnseigant;
+    private JFormattedTextField prenomEnseignant;
+    private JFormattedTextField nomEnseignant;
+    private JComboBox comboClasseEnseignant;
+    private JButton CreateProf;
+    private JButton updateProf;
+    private JButton deleteProf;
     private JComboBox comboAnneescoCour;
-    private JComboBox comboTriEnCours;
+    private JComboBox comboTriEnCours1;
     private JButton mettreAJourButton;
     private JFormattedTextField anneeText;
     private JButton ajouterButton2;
@@ -57,18 +54,33 @@ public class Menu {
     private JFormattedTextField textDateFin;
     private JComboBox comboAnne;
     private JButton ajouterButtonTrimestre;
-    private JFormattedTextField formattedTextField9;
+    private JComboBox combDiscipline;
+    private JComboBox comboTriEnCours2;
+    private JComboBox comboTriEnCours3;
+    private JComboBox comboTriEval;
+    private JTable bultinTable;
+    private JTable evalTable;
+    private JTable detailBultinTable;
+    private JTable infosNoteTable;
 
     public Menu() {
         ModeleControleurClasse modeleControleurClasse = new ModeleControleurClasse();
         comboBox1.addItem("Tout les elves");
 
-        modeleControleurClasse.findName().forEach((name)-> comboBox1.addItem(name));
-        modeleControleurClasse.findName().forEach((name)-> classeCombo.addItem(name));
+        modeleControleurClasse.findAll().forEach((classe)-> {
+            comboBox1.addItem(classe);
+            comboClasseEnseignant.addItem(classe);
+            classeCombo.addItem(classe);
+        });
+
+        new ModelControlleurDiscipline().findAll().forEach((discipline -> {
+            combDiscipline.addItem(discipline);
+        }));
+
 
         formattedTextField3.setEditable(false);
         ModeleControlleurEleve modeleControlleurEleve = new ModeleControlleurEleve();
-       modeleControlleurEleve.findElevesNoInscrit().forEach((eleve -> elevesCombo.addItem("Id : "+eleve.getId()+" | Prenom : "+eleve.getPrenom())));
+       modeleControlleurEleve.findElevesNoInscrit().forEach((eleve -> elevesCombo.addItem(eleve)));
 
        comboTrimestre.addItem(1);
        comboTrimestre.addItem(2);
@@ -104,11 +116,13 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VueControlleurEleve vueControlleurEleve = null;
-                if(comboBox1.getSelectedItem().toString() == "Tout les elves"){
+               if(comboBox1.getSelectedItem().toString() == "Tout les elves"){
                      vueControlleurEleve = new VueControlleurEleve();
                 }else {
-                     vueControlleurEleve = new VueControlleurEleve(modeleControleurClasse.getClasseEleve(modeleControleurClasse.findId(comboBox1.getSelectedItem().toString())));
+                    Classe classe = (Classe) comboBox1.getSelectedItem();
+                     vueControlleurEleve = new VueControlleurEleve(modeleControleurClasse.getClasseEleve(classe.getIdClasse()));
                 }
+
                 table2.setModel(vueControlleurEleve);
             }
         });
@@ -121,8 +135,10 @@ public class Menu {
                    Niveaux niveaux = new Niveaux(niveauClasse.getSelectedItem().toString());
                    new ModeleControleurClasse().create(new Classe(nom,niveaux,anneScolaire));
                    className.setText("");
-                   modeleControleurClasse.findName().forEach((name)-> comboBox1.addItem(name));
-                   modeleControleurClasse.findName().forEach((name)-> classeCombo.addItem(name));
+                   modeleControleurClasse.findAll().forEach((classe)-> {
+                       comboBox1.addItem(classe);
+                       classeCombo.addItem(classe);
+                   });
                }
 
             }
@@ -132,7 +148,11 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                modeleControlleurEleve.inscriptionEleve(modeleControlleurEleve.findElevesNoInscrit().get(elevesCombo.getSelectedIndex()),modeleControleurClasse.findId((String)classeCombo.getSelectedItem()));
+                        Eleve eleve = (Eleve) elevesCombo.getSelectedItem();
+                        Classe classe = (Classe)  classeCombo.getSelectedItem();
+
+                        modeleControlleurEleve.inscriptionEleve(eleve,classe.getIdClasse());
+
             }
         });
         create.addActionListener(new ActionListener() {
@@ -144,7 +164,12 @@ public class Menu {
                 formattedTextField3.setValue(null);
                 VueControlleurEleve vueControlleurEleve = new VueControlleurEleve();
                 table2.setModel(vueControlleurEleve);
-                modeleControlleurEleve.findElevesNoInscrit().forEach((eleve -> elevesCombo.addItem("Id : "+eleve.getId()+" | Prenom : "+eleve.getPrenom())));
+                modeleControlleurEleve.findElevesNoInscrit().forEach((eleve -> elevesCombo.addItem(eleve)));
+                JFrame jFrame = new JFrame("Inscritpion");
+                jFrame.setContentPane(new Inscritpion().contentPane);
+                jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                jFrame.pack();
+                jFrame.setVisible(true);
             }
         });
         deleteButton.addActionListener(new ActionListener() {
@@ -180,6 +205,14 @@ public class Menu {
         ajouterButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Eleve eleve = (Eleve) eleveCombo.getSelectedItem();
+                Enseignant enseignant = (Enseignant) professeurCombo.getSelectedItem();
+                Trimestre trimestre = (Trimestre) comboTriEval.getSelectedItem();
+                double note =  Double.parseDouble(noteTextField.getText());
+                String appreciaiton = appreciaitonTextField.getText();
+                int bultinDetailId = new ModeleControleurDetailBultin().findDetailBultinId(enseignant,eleve,trimestre);
+                Evaluation evaluation = new Evaluation(-1,bultinDetailId,note,appreciaiton);
+                new ModeleControlleurEvaluation().create(evaluation);
 
             }
         });
@@ -196,10 +229,19 @@ public class Menu {
         mettreAJourButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Trimestre trimestre = (Trimestre) comboTriEnCours.getSelectedItem();
-                AnneScolaire anneScolaire = (AnneScolaire) comboAnneescoCour.getSelectedItem();
-                trimestre.serialize();
-                anneScolaire.serialize();
+               try {
+
+                   Trimestre trimestre = (Trimestre) comboTriEnCours1.getSelectedItem();
+                   trimestre.serialize("1");
+                   trimestre = (Trimestre) comboTriEnCours2.getSelectedItem();
+                   trimestre.serialize("2");
+                   trimestre = (Trimestre) comboTriEnCours3.getSelectedItem();
+                   trimestre.serialize("3");
+                   AnneScolaire anneScolaire = (AnneScolaire) comboAnneescoCour.getSelectedItem();
+                   anneScolaire.serialize();
+               }catch (IOException serialize){
+                   System.out.println("impossible serializer : " + serialize.getMessage());
+               }
             }
         });
         table1.addMouseListener(new MouseAdapter() {
@@ -207,7 +249,31 @@ public class Menu {
             public void mouseClicked(MouseEvent e) {
                 int id = (int) table1.getValueAt(table1.rowAtPoint(e.getPoint()),0);
                 Enseignant enseignant = new ModeleControlleurEnseignant().find(id);
+                nomEnseignant.setValue(enseignant.getNom());
+                prenomEnseignant.setValue(enseignant.getPrenom());
+                idEnseigant.setValue(enseignant.getId());
 
+                combDiscipline.setSelectedItem(enseignant.getDisciplineEnseignant());
+                comboClasseEnseignant.setSelectedItem(enseignant.getClasse());
+
+            }
+        });
+        ajouterButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+               new ModelControlleurAnnee().create(new AnneScolaire( anneeText.getText()));
+            }
+        });
+        CreateProf.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nom = nomEnseignant.getText();
+                String prenom = prenomEnseignant.getText();
+                Discipline discipline =(Discipline) combDiscipline.getSelectedItem();
+                Classe classe = (Classe) comboClasseEnseignant.getSelectedItem();
+
+                new ModeleControlleurEnseignant().create(new Enseignant(-1,nom,prenom,discipline,classe));
             }
         });
     }
@@ -219,17 +285,24 @@ public class Menu {
 
         table1 = new JTable(new VueContrlleurEnseignant());
         table1.setAutoCreateRowSorter(true);
+        infosNoteTable = new JTable();
 
         anneClasse = new JComboBox();
         niveauClasse = new JComboBox();
         comboAnne = new JComboBox();
         comboAnneescoCour = new JComboBox();
-        comboTriEnCours = new JComboBox();
+        comboTriEnCours1 = new JComboBox();
+        comboTriEnCours2 = new JComboBox();
+        comboTriEnCours3 = new JComboBox();
+        comboTriEval = new JComboBox();
         professeurCombo = new JComboBox();
         eleveCombo = new JComboBox();
 
         new ModeleControlleurTrimestre().findAll().forEach((trimestre -> {
-            comboTriEnCours.addItem(trimestre);
+            comboTriEnCours1.addItem(trimestre);
+            comboTriEnCours2.addItem(trimestre);
+            comboTriEnCours3.addItem(trimestre);
+            comboTriEval.addItem(trimestre);
         }));
 
         new ModelControlleurAnnee().findAll().forEach((anneScolaire -> {
@@ -248,10 +321,18 @@ public class Menu {
             eleveCombo.addItem(eleve);
         });
 
-      AnneScolaire anneScolaire = AnneScolaire.deserialize();
-      comboAnneescoCour.setSelectedItem(anneScolaire);
+      try {
+          AnneScolaire anneScolaire = AnneScolaire.deserialize();
+          comboAnneescoCour.setSelectedItem(anneScolaire);
+          Trimestre trimestre = Trimestre.deserialize("1");
+          comboTriEnCours1.setSelectedItem(trimestre);
+          trimestre = Trimestre.deserialize("2");
+          comboTriEnCours2.setSelectedItem(trimestre);
+          trimestre = Trimestre.deserialize("3");
+          comboTriEnCours3.setSelectedItem(trimestre);
+      } catch (IOException | ClassNotFoundException e){
+          System.out.println("Pas d'année en cour ou de trimestre choisie");
+      }
 
-      Trimestre trimestre = Trimestre.deserialize();
-      comboTriEnCours.setSelectedItem(trimestre);
     }
 }

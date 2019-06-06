@@ -47,11 +47,10 @@ public class ModeleControlleurTrimestre extends ModeleControlleur<Trimestre> {
             ).executeQuery("SELECT * FROM trimestre WHERE 1");
 
             while (result.next()){
-                String anneeScolaire  = result.getString("annee");
                 int numero = result.getInt("numero");
                 String dDebut = result.getString("debut");
                 String dFin = result.getString("fin");
-                AnneScolaire anneScolaire  = getAnneeScolaire(result.getInt("annescolaire.id"));
+                AnneScolaire anneScolaire  = getAnneeScolaire(result.getInt("anneescolaire.id"));
 
                 int id = result.getInt("id");
                 trimestreArrayList.add(new Trimestre(id,numero,dDebut,dFin,anneScolaire));
@@ -76,11 +75,11 @@ public class ModeleControlleurTrimestre extends ModeleControlleur<Trimestre> {
     @Override
     public void create(Trimestre obj) {
         try {
-            String requete = "INSERT INTO trimestre (numero,debut,fin,anneescolaire.id) VALUE ('"+obj.getNumero()+"'," +
+            String requete = "INSERT INTO trimestre (numero,debut,fin,`anneescolaire.id`) VALUE ('"+obj.getNumero()+"'," +
                     "'"+obj.getDebut()+"','"+obj.getFin()+"','"+obj.getAnneScolaire().getId()+"')";
             this.getConnexion().execute(requete);
         }catch (SQLException e){
-            System.out.println(e);
+                e.printStackTrace();
         }
 
     }
