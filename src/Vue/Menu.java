@@ -1,8 +1,7 @@
 package Vue;
 
 import Controleur.ModelControlleur.*;
-import Controleur.VueControlleur.VueContrlleurEnseignant;
-import Controleur.VueControlleur.VueControlleurEleve;
+import Controleur.VueControlleur.*;
 import Modele.*;
 
 import javax.swing.*;
@@ -61,6 +60,8 @@ public class Menu {
     private JTable bultinTable;
     private JTable evalTable;
     private JTable detailBultinTable;
+    private JTextArea textArea1;
+    private JLabel log;
     private JTable infosNoteTable;
 
     public Menu() {
@@ -97,6 +98,7 @@ public class Menu {
                 formattedTextField2.setValue(eleve.getPrenom());
                 formattedTextField3.setValue(eleve.getId());
                 formattedTextField3.setEditable(false);
+                bultinTable.setModel(new VueControlleurBultin(eleve));
 
             }
         });
@@ -165,11 +167,11 @@ public class Menu {
                 VueControlleurEleve vueControlleurEleve = new VueControlleurEleve();
                 table2.setModel(vueControlleurEleve);
                 modeleControlleurEleve.findElevesNoInscrit().forEach((eleve -> elevesCombo.addItem(eleve)));
-                JFrame jFrame = new JFrame("Inscritpion");
+               /* JFrame jFrame = new JFrame("Inscritpion");
                 jFrame.setContentPane(new Inscritpion().contentPane);
                 jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jFrame.pack();
-                jFrame.setVisible(true);
+                jFrame.setVisible(true);*/
             }
         });
         deleteButton.addActionListener(new ActionListener() {
@@ -276,6 +278,24 @@ public class Menu {
                 new ModeleControlleurEnseignant().create(new Enseignant(-1,nom,prenom,discipline,classe));
             }
         });
+        bultinTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int id = (int) bultinTable.getValueAt(bultinTable.rowAtPoint(e.getPoint()),0);
+                Bulletin bulletin = new ModelControlleurBultin().find(id);
+                detailBultinTable.setModel(new VueControlleurDetailBultin(bulletin));
+
+            }
+        });
+        detailBultinTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int id = (int) detailBultinTable.getValueAt(detailBultinTable.rowAtPoint(e.getPoint()),0);
+                DetailBulletin detailBulletin = new ModeleControleurDetailBultin().find(id);
+                evalTable.setModel(new VueControlleurEval(detailBulletin));
+
+            }
+        });
     }
 
 
@@ -285,6 +305,15 @@ public class Menu {
 
         table1 = new JTable(new VueContrlleurEnseignant());
         table1.setAutoCreateRowSorter(true);
+        bultinTable = new JTable();
+        bultinTable.setAutoCreateRowSorter(true);
+
+        detailBultinTable = new JTable();
+        detailBultinTable.setAutoCreateRowSorter(true);
+
+        evalTable = new JTable();
+        evalTable.setAutoCreateRowSorter(true);
+
         infosNoteTable = new JTable();
 
         anneClasse = new JComboBox();

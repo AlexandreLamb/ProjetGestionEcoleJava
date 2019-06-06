@@ -128,4 +128,22 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
         }
         return eleveArrayList;
     }
+    public Eleve findEleveByInscription(int idInscription){
+        Eleve eleve = null;
+        try {
+            ResultSet result = this.getConnexion().getConn().createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            ).executeQuery("SELECT eleve.* FROM eleve \n" +
+                    "INNER JOIN inscription \n" +
+                    "on inscription.eleve=eleve.id\n" +
+                    "WHERE inscription.id ="+idInscription);
+            if (result.first()){
+                eleve = new Eleve(result.getInt("id"),result.getString("nom"),result.getString("prenom"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  eleve;
+    }
 }

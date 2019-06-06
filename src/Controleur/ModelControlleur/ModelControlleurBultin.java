@@ -1,9 +1,11 @@
 package Controleur.ModelControlleur;
 
 import Modele.Bulletin;
+import Modele.Eleve;
 import Modele.Trimestre;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -15,9 +17,48 @@ public class ModelControlleurBultin extends ModeleControlleur<Bulletin> {
         return null;
     }
 
+    public ArrayList<Bulletin> findAllBulletinByEleve(Eleve eleve) {
+        ArrayList<Bulletin> bulletinArrayList = new ArrayList<>();
+        try {
+            ResultSet result = this.getConnexion().getConn().createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            ).executeQuery("SELECT bulletin.id, bulletin.`inscription.id`,bulletin.appreciation,bulletin.`Trimestre.id` FROM `bulletin` \n" +
+                    "INNER JOIN inscription\n" +
+                    "on inscription.id = bulletin.`inscription.id`\n" +
+                    "WHERE inscription.eleve ="+eleve.getId());
+            while (result.next()){
+                int id = result.getInt("id");
+                Eleve eleve1 = new ModeleControlleurEleve().findEleveByInscription(result.getInt("inscription.id"));
+                Trimestre trimestre = new ModeleControlleurTrimestre().find(result.getInt("Trimestre.id"));
+                String appreciation = result.getString("appreciation");
+                bulletinArrayList.add(new Bulletin(id,appreciation,eleve1,trimestre));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return bulletinArrayList;
+    }
+
     @Override
     public Bulletin find(int id) {
-        return null;
+        Bulletin bulletin =null;
+        try {
+            ResultSet result = this.getConnexion().getConn().createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            ).executeQuery("SELECT * from bulletin where id ="+id);
+            if (result.first()){
+                int idBultin = result.getInt("id");
+                Eleve eleve1 = new ModeleControlleurEleve().findEleveByInscription(result.getInt("inscription.id"));
+                Trimestre trimestre = new ModeleControlleurTrimestre().find(result.getInt("Trimestre.id"));
+                String appreciation = result.getString("appreciation");
+                bulletin = new Bulletin(idBultin,appreciation,eleve1,trimestre);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return bulletin;
     }
 
     @Override
@@ -48,4 +89,7 @@ public class ModelControlleurBultin extends ModeleControlleur<Bulletin> {
     public boolean update(Bulletin obj) {
         return false;
     }
+
+
+
 }

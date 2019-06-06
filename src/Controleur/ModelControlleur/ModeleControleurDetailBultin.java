@@ -45,7 +45,25 @@ public class ModeleControleurDetailBultin extends ModeleControlleur<DetailBullet
 
     @Override
     public DetailBulletin find(int id) {
-        return null;
+       DetailBulletin detailBulletin = null;
+        try {
+            ResultSet result = this.getConnexion().getConn().createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            ).executeQuery("SELECT * FROM detailbulletin WHERE `id`="+id);
+            if (result.first()){
+
+                int idDetailBultin = result.getInt("id");
+                int idBulitn = result.getInt("Bulletin.id");
+                Enseignant enseignant = new ModeleControlleurEnseignant().findByEnseignement(result.getInt("Enseignement.id"));
+                String appreciation = result.getString("appreciation");
+                ArrayList<Evaluation> evaluationArrayList = new ModeleControlleurEvaluation().findEvaluationByDetailBuletin(id);
+                detailBulletin = new DetailBulletin(idDetailBultin,idBulitn,enseignant,appreciation,evaluationArrayList);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return detailBulletin;
     }
     public int findDetailBultinId(Enseignant enseignant, Eleve eleve, Trimestre trimestre){
         int idBuletin =0;
@@ -90,5 +108,25 @@ public class ModeleControleurDetailBultin extends ModeleControlleur<DetailBullet
     @Override
     public ArrayList<DetailBulletin> findAll() {
         return null;
+    }
+    public ArrayList<DetailBulletin> findByBultin(int idBulitn){
+        ArrayList<DetailBulletin> detailBulletinArrayList = new ArrayList<>();
+        try {
+            ResultSet result = this.getConnexion().getConn().createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            ).executeQuery("SELECT * FROM detailbulletin WHERE `Bulletin.id`="+idBulitn);
+            while (result.next()){
+
+                int id = result.getInt("id");
+                Enseignant enseignant = new ModeleControlleurEnseignant().findByEnseignement(result.getInt("Enseignement.id"));
+                String appreciation = result.getString("appreciation");
+                ArrayList<Evaluation> evaluationArrayList = new ModeleControlleurEvaluation().findEvaluationByDetailBuletin(id);
+                detailBulletinArrayList.add(new DetailBulletin(id,idBulitn,enseignant,appreciation,evaluationArrayList));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return detailBulletinArrayList;
     }
 }

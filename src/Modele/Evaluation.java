@@ -1,10 +1,10 @@
 package Modele;
 
 public class Evaluation {
-    private double note;
-    private String appreciation;
-    private int detailBultinId;
     private int id;
+    private int detailBultinId;
+    private String appreciation;
+    private double note;
 
     public Evaluation(int id, int detailBultinId, double note, String appreciation){
         this.note = note;
@@ -32,5 +32,14 @@ public class Evaluation {
     @Override
     public String toString() {
         return "bultin id  : " + detailBultinId  + " note : " + note + " appreciaiton : "  + appreciation;
+    }
+    public Object getField(int index){
+        switch (index){
+            case 0 : return getId();
+            case 1 : return getDetailBultinId();
+            case 2 : return getAppreciation();
+            case 3 : return getNote();
+            default: return "default";
+        }
     }
 }

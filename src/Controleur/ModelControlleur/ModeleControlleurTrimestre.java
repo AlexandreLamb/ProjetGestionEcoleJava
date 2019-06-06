@@ -20,11 +20,10 @@ public class ModeleControlleurTrimestre extends ModeleControlleur<Trimestre> {
             ).executeQuery("SELECT * FROM trimestre WHERE id = "+id);
 
             if (result.first()){
-                String anneeScolaire  = result.getString("annee");
                 int numero = result.getInt("numero");
                 String dDebut = result.getString("debut");
                 String dFin = result.getString("fin");
-                AnneScolaire anneScolaire  = getAnneeScolaire(result.getInt("annescolaire.id"));
+                AnneScolaire anneScolaire  = getAnneeScolaire(result.getInt("anneescolaire.id"));
 
                 int idTri = result.getInt("id");
                 trimestre = new Trimestre(idTri,numero,dDebut,dFin,anneScolaire);
