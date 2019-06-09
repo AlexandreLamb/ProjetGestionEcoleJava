@@ -2,26 +2,24 @@ package Controleur.ModelControlleur;
 
 import Connexion.Connexion;
 
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public abstract class ModeleControlleur <T> {
+public abstract class ModeleControlleur<T> {
     Connexion connexion;
 
 
-    public ModeleControlleur(){
+    public ModeleControlleur() {
         try {
-            this.connexion= new Connexion("base_projet_java","root","");
+            this.connexion = new Connexion("base_projet_java", "root", "");
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);
         }
     }
+
     /**
      * Méthode de création
+     *
      * @param obj
      * @return boolean
      */
@@ -29,6 +27,7 @@ public abstract class ModeleControlleur <T> {
 
     /**
      * Méthode pour effacer
+     *
      * @param obj
      * @return boolean
      */
@@ -36,6 +35,7 @@ public abstract class ModeleControlleur <T> {
 
     /**
      * Méthode de mise à jour
+     *
      * @param obj
      * @return boolean
      */
@@ -43,6 +43,7 @@ public abstract class ModeleControlleur <T> {
 
     /**
      * Méthode de recherche des informations
+     *
      * @param id
      * @return T
      */

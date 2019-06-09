@@ -1,24 +1,18 @@
 package Controleur;
 
 import Vue.EcoleVue;
-import Vue.MiseAJourVue;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EcoleControleur extends JFrame implements ActionListener {
+public class EcoleControleur {
     private EcoleVue ecoleVue;
 
-    public EcoleControleur(){
+    public EcoleControleur() {
         this.ecoleVue = new EcoleVue();
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-
-        }
-    }
-
+}

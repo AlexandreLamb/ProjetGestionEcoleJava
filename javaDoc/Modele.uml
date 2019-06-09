@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Modele</OriginalElement>
+  <nodes>
+    <node x="621.1591666666668" y="202.5">Modele.Eleve</node>
+    <node x="895.7558333333334" y="501.5">Modele.Trimestre</node>
+    <node x="221.7933333333333" y="435.0">Modele.Classe</node>
+    <node x="863.75" y="169.0">Modele.AnneScolaire</node>
+    <node x="267.0" y="858.0">Modele.Enseignant</node>
+    <node x="622.6591666666668" y="1374.0">Modele.Bulletin</node>
+    <node x="41.125" y="1094.0">Modele.DetailBulletin</node>
+    <node x="621.7933333333333" y="534.5">Modele.Discipline</node>
+    <node x="337.57000000000005" y="0.0">Modele.Personne</node>
+    <node x="0.0" y="858.0">Modele.Evaluation</node>
+    <node x="205.45249999999987" y="179.5">Modele.Niveaux</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Modele.Enseignant" target="Modele.Classe">
+      <point x="-26.666666666666686" y="-93.0" />
+      <point x="400.3333333333333" y="818.0" />
+      <point x="316.7933333333333" y="818.0" />
+      <point x="-95.0" y="181.5" />
+    </edge>
+    <edge source="Modele.Eleve" target="Modele.Personne">
+      <point x="48.25" y="-59.5" />
+      <point x="765.9091666666668" y="139.0" />
+      <point x="525.695" y="139.0" />
+      <point x="80.625" y="59.5" />
+    </edge>
+    <edge source="Modele.DetailBulletin" target="Modele.Enseignant">
+      <point x="168.75" y="-115.0" />
+      <point x="434.875" y="1069.0" />
+      <point x="507.0" y="1069.0" />
+      <point x="80.0" y="93.0" />
+    </edge>
+    <edge source="Modele.DetailBulletin" target="Modele.Evaluation">
+      <point x="-168.75" y="-115.0" />
+      <point x="97.375" y="1069.0" />
+      <point x="61.75" y="1069.0" />
+      <point x="-61.75" y="93.0" />
+    </edge>
+    <edge source="Modele.Bulletin" target="Modele.DetailBulletin">
+      <point x="-110.0" y="-104.5" />
+      <point x="732.6591666666668" y="1344.0" />
+      <point x="378.625" y="1344.0" />
+      <point x="112.5" y="115.0" />
+    </edge>
+    <edge source="Modele.Classe" target="Modele.AnneScolaire">
+      <point x="158.33333333333337" y="-181.5" />
+      <point x="570.1266666666667" y="415.0" />
+      <point x="939.125" y="415.0" />
+      <point x="-25.125" y="93.0" />
+    </edge>
+    <edge source="Modele.Classe" target="Modele.Niveaux">
+      <point x="-158.33333333333343" y="-181.5" />
+      <point x="253.45999999999987" y="415.0" />
+      <point x="262.9524999999999" y="415.0" />
+      <point x="-57.5" y="82.5" />
+    </edge>
+    <edge source="Modele.Enseignant" target="Modele.Personne">
+      <point x="-133.33333333333337" y="-93.0" />
+      <point x="293.66666666666663" y="838.0" />
+      <point x="157.60416666666663" y="838.0" />
+      <point x="157.60416666666663" y="139.0" />
+      <point x="364.44500000000005" y="139.0" />
+      <point x="-80.625" y="59.5" />
+    </edge>
+    <edge source="Modele.Bulletin" target="Modele.Eleve">
+      <point x="36.66666666666663" y="-104.5" />
+      <point x="879.3258333333334" y="1354.0" />
+      <point x="870.0491666666668" y="1354.0" />
+      <point x="870.0491666666668" y="385.0" />
+      <point x="790.0341666666668" y="385.0" />
+      <point x="72.375" y="59.5" />
+    </edge>
+    <edge source="Modele.Bulletin" target="Modele.Trimestre">
+      <point x="183.3333333333334" y="-104.5" />
+      <point x="1025.9925000000003" y="1354.0" />
+      <point x="1064.1683333333333" y="1354.0" />
+      <point x="1064.1683333333333" y="838.0" />
+      <point x="1129.0058333333334" y="838.0" />
+      <point x="77.75" y="115.0" />
+    </edge>
+    <edge source="Modele.Classe" target="Modele.Eleve">
+      <point x="-31.666666666666686" y="-181.5" />
+      <point x="380.1266666666666" y="385.0" />
+      <point x="645.2841666666668" y="385.0" />
+      <point x="-72.375" y="59.5" />
+    </edge>
+    <edge source="Modele.Enseignant" target="Modele.Discipline">
+      <point x="133.33333333333331" y="-93.0" />
+      <point x="560.3333333333333" y="838.0" />
+      <point x="764.2933333333333" y="838.0" />
+      <point x="47.5" y="82.0" />
+    </edge>
+    <edge source="Modele.Trimestre" target="Modele.AnneScolaire">
+      <point x="-77.75" y="-115.0" />
+      <point x="973.5058333333334" y="415.0" />
+      <point x="989.375" y="415.0" />
+      <point x="25.125" y="93.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="400.0" y="1339.5" />
+  <SelectedNodes>
+    <node>Modele.Eleve</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

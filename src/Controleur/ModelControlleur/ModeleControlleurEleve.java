@@ -7,12 +7,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * @author Alexandre Lambert
+ */
 public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
 
+    /**
+     *
+     */
     public ModeleControlleurEleve(){
         super();
     }
 
+    /**
+     * @return
+     */
     @Override
     public ArrayList<Eleve> findAll(){
         ArrayList<Eleve> eleveArrayList = new ArrayList<>();
@@ -81,6 +90,9 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
         return true;
     }
 
+    /**
+     * @param eleve
+     */
     @Override
     public void create(Eleve eleve){
         try {
@@ -90,6 +102,11 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
             System.out.println(e);
         }
     }
+
+    /**
+     * @param eleve
+     * @param idClasse
+     */
     public void inscriptionEleve(Eleve eleve, int idClasse){
         try {
             String requete = "INSERT INTO inscription (classe, eleve) VALUES ('"+idClasse+"','"+ eleve.getId()+"')";
@@ -108,6 +125,9 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
     }
 
 
+    /**
+     * @return
+     */
     public ArrayList<Eleve> findElevesNoInscrit(){
         ArrayList<Eleve> eleveArrayList = new ArrayList<>();
 
@@ -127,6 +147,11 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
         }
         return eleveArrayList;
     }
+
+    /**
+     * @param idInscription
+     * @return
+     */
     public Eleve findEleveByInscription(int idInscription){
         Eleve eleve = null;
         try {

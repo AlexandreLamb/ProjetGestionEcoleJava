@@ -1,10 +1,8 @@
 package Controleur;
 
 import Connexion.Connexion;
-import Modele.AnneScolaire;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class RequestControlleur {
     private Connexion connexion;

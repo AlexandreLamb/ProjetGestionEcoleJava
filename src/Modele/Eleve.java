@@ -1,7 +1,5 @@
 package Modele;
 
-import java.util.ArrayList;
-
 public class Eleve extends Personne {
     public Eleve(int id, String nom, String prenom){
         super(id,nom,prenom);

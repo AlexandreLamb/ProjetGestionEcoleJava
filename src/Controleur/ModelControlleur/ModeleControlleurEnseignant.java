@@ -118,6 +118,10 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
         }
     }
 
+    /**
+     * @param idEnseignant
+     * @return
+     */
     public Discipline getDisciplineEnseignant(int idEnseignant){
         Discipline discipline = null;
         try {
@@ -135,13 +139,27 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
         }
         return discipline;
     }
+
+    /**
+     * @param idClasse
+     * @return
+     */
     public Classe getClasseEnseignant(int idClasse){
         return  new ModeleControleurClasse().find(idClasse);
     }
+
+    /**
+     * @param idEnseingant
+     * @return
+     */
     public ArrayList<Eleve> getEleveByClasse(int idEnseingant){
         return new ModeleControleurClasse().getClasseEleve(getIdClasse(idEnseingant));
     }
 
+    /**
+     * @param idEnseingant
+     * @return
+     */
     public int getIdClasse(int idEnseingant){
         int idClasse = -1;
         try {
@@ -159,6 +177,9 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
         return idClasse;
     }
 
+    /**
+     * @param enseignant
+     */
     public void addEnseignement(Enseignant enseignant){
         try {
             String requete = "INSERT INTO enseignement (enseignantId, classeId) VALUES ('"+enseignant.getId()+"','"+ enseignant.getClasse().getIdClasse()+"')";
@@ -184,6 +205,9 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
         }
     }
 
+    /**
+     * @return
+     */
     public Enseignant findLastInstertion(){
         Enseignant enseignant = null;
        try {
@@ -204,6 +228,11 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
        }
         return enseignant;
     }
+
+    /**
+     * @param idEnseignement
+     * @return
+     */
     public Enseignant findByEnseignement(int idEnseignement){
         Enseignant enseignant = null;
         try {

@@ -6,7 +6,6 @@ import Controleur.VueControlleur.*;
 import Modele.*;
 
 import javax.swing.*;
-import java.awt.color.CMMException;
 import java.awt.event.*;
 import java.io.IOException;
 
@@ -30,13 +29,11 @@ public class Menu {
     private JComboBox elevesCombo;
     private JButton addButton;
     private JTable table1;
-    private JButton ajouterButton;
     private JFormattedTextField noteTextField;
     private JFormattedTextField appreciaitonTextField;
     private JButton ajouterButton1;
     private JComboBox professeurCombo;
     private JComboBox eleveCombo;
-    private JFormattedTextField formattedTextField6;
     private JFormattedTextField idEnseigant;
     private JFormattedTextField prenomEnseignant;
     private JFormattedTextField nomEnseignant;
@@ -62,8 +59,9 @@ public class Menu {
     private JTable evalTable;
     private JTable detailBultinTable;
     private JTextArea logtext;
-    private JLabel log;
     private JLabel moyenne;
+    private JButton ajouterButton;
+    private JFormattedTextField formattedTextField6;
     private JTable infosNoteTable;
 
     public Menu() {

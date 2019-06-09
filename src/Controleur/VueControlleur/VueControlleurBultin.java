@@ -1,7 +1,6 @@
 package Controleur.VueControlleur;
 
 import Controleur.ModelControlleur.ModelControlleurBultin;
-import Controleur.ModelControlleur.ModeleControlleur;
 import Modele.Bulletin;
 import Modele.Eleve;
 

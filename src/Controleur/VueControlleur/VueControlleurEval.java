@@ -1,7 +1,6 @@
 package Controleur.VueControlleur;
 
 import Modele.DetailBulletin;
-import Modele.Enseignant;
 import Modele.Evaluation;
 
 public class VueControlleurEval extends VueControlleur<Evaluation> {

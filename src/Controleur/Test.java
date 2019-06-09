@@ -1,8 +1,7 @@
 package Controleur;
 
 import Controleur.ModelControlleur.ModeleControleurClasse;
-import Controleur.ReportingControlleur.Statistique;
-import Modele.*;
+import Modele.Classe;
 import Vue.EcoleVue;
 
 import java.util.ArrayList;

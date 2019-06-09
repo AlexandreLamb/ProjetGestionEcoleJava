@@ -1,6 +1,5 @@
 package Controleur.ModelControlleur;
 
-import Modele.AnneScolaire;
 import Modele.Niveaux;
 
 import java.sql.ResultSet;
