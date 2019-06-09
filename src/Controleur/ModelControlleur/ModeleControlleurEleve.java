@@ -1,6 +1,8 @@
 package Controleur.ModelControlleur;
 
+import Modele.DetailBulletin;
 import Modele.Eleve;
+import Modele.Enseignant;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +19,25 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
      */
     public ModeleControlleurEleve(){
         super();
+    }
+
+    public ArrayList<Eleve> findBySearch(String str){
+        ArrayList<Eleve> eleveArrayList = new ArrayList<>();
+        try {
+            ResultSet resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY).executeQuery(
+                    "SELECT * FROM eleve WHERE prenom LIKE '%"+str+"%'" +
+                            "OR nom LIKE '%"+str+"%'");
+            while (resultSet.next()){
+                eleveArrayList.add(new Eleve(resultSet.getInt("id"),resultSet.getString("nom"),resultSet.getString("prenom")));
+            }
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+        return eleveArrayList;
+
+
     }
 
     /**
@@ -118,9 +139,35 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
             if (resultSet.first()){
                 new ModelControlleurBultin().create(resultSet.getInt("id"));
             }
+             resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY).executeQuery(
+                    "SELECT enseignement.enseignantId\n" +
+                            "FROM enseignement WHERE enseignement.classeId="+idClasse);
+            while (resultSet.next()){
+                ResultSet query = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY).executeQuery(
+                        "SELECT bulletin.id FROM bulletin\n" +
+                                "INNER JOIN inscription\n" +
+                                "on inscription.id = bulletin.`inscription.id`\n" +
+                                "INNER JOIN classe \n" +
+                                "on classe.id = inscription.classe\n" +
+                                "INNER JOIN enseignement\n" +
+                                "ON enseignement.classeId = classe.id\n" +
+                                "WHERE enseignement.enseignantId ="+resultSet.getInt("enseignantId")+"\n"+
+                                "AND inscription.eleve="+eleve.getId()
+
+                );
+                while (query.next()){
+                    new ModeleControleurDetailBultin().create(new DetailBulletin(query.getInt("bulletin.id"),new Enseignant(resultSet.getInt("enseignantId"))));
+                }
+            }
+
+
+
+
 
         }catch (SQLException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

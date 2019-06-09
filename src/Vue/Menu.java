@@ -62,6 +62,7 @@ public class Menu {
     private JLabel moyenne;
     private JButton ajouterButton;
     private JFormattedTextField formattedTextField6;
+    private JButton search;
     private JTable infosNoteTable;
 
     public Menu() {
@@ -324,6 +325,13 @@ public class Menu {
                 String prenom = prenomEnseignant.getText();
                 int id =Integer.parseInt( idEnseigant.getText());
                 new ModeleControlleurEnseignant().update(new Enseignant(id,nom,prenom,discipline,classe));
+            }
+        });
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String str = formattedTextField1.getText();
+                table2.setModel(new VueControlleurEleve(new ModeleControlleurEleve().findBySearch(str)));
             }
         });
     }
