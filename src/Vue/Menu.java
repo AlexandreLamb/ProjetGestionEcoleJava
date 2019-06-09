@@ -60,8 +60,6 @@ public class Menu {
     private JTable detailBultinTable;
     private JTextArea logtext;
     private JLabel moyenne;
-    private JButton ajouterButton;
-    private JFormattedTextField formattedTextField6;
     private JButton search;
     private JTable infosNoteTable;
 
@@ -146,7 +144,9 @@ public class Menu {
                    modeleControleurClasse.findAll().forEach((classe)-> {
                        comboBox1.addItem(classe);
                        classeCombo.addItem(classe);
+                       comboClasseEnseignant.addItem(classe);
                    });
+
                }
 
             }
@@ -284,6 +284,9 @@ public class Menu {
                 Classe classe = (Classe) comboClasseEnseignant.getSelectedItem();
 
                 new ModeleControlleurEnseignant().create(new Enseignant(-1,nom,prenom,discipline,classe));
+                new ModeleControlleurEnseignant().findAll().forEach((enseignant -> {
+                    professeurCombo.addItem(enseignant);
+                }));
             }
         });
         bultinTable.addMouseListener(new MouseAdapter() {

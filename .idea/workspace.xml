@@ -7,93 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6124b53-853c-4895-9f76-02c6aa5b2451" name="elimineWarning" comment="elimineWarning">
-      <change beforePath="$PROJECT_DIR$/javaDoc/Connexion/Connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Connexion/Connexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Connexion/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Connexion/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Connexion/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Connexion/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Connexion/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Connexion/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/EcoleControleur.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/EcoleControleur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurAnnee.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurAnnee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurBultin.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurBultin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurDiscipline.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurDiscipline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurNiveau.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModelControlleurNiveau.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControleurClasse.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControleurClasse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControleurDetailBultin.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControleurDetailBultin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleur.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurEleve.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurEleve.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurEnseignant.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurEnseignant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurEvaluation.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurEvaluation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurTrimestre.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/ModeleControlleurTrimestre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ModelControlleur/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/Statistique.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/Statistique.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/ReportingControlleur/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/RequestControlleur.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/RequestControlleur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/Test.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/Test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueContrlleurEnseignant.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueContrlleurEnseignant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleur.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurBultin.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurBultin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurDetailBultin.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurDetailBultin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurEleve.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurEleve.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurEval.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/VueControlleurEval.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/VueControlleur/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Controleur/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Controleur/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/AnneScolaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/AnneScolaire.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Bulletin.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Bulletin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Classe.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Classe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/DetailBulletin.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/DetailBulletin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Discipline.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Discipline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Eleve.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Eleve.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Enseignant.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Enseignant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Evaluation.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Evaluation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Niveaux.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Niveaux.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Personne.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Personne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/Trimestre.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/Trimestre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Modele/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Modele/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/EcoleVue.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/EcoleVue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/Inscritpion.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/Inscritpion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/Menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/Menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/MiseAJourVue.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/MiseAJourVue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/Vue/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/Vue/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/allclasses-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/allclasses-noframe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/deprecated-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-18.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/overview-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/overview-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaDoc/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaDoc/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetEcoleGestion/Controleur/ModelControlleur/ModeleControlleurEleve.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetEcoleGestion/Controleur/ModelControlleur/ModeleControlleurEleve.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/Menu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Menu.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Menu.java" afterDir="false" />
     </list>
     <list id="aff3081d-762a-4fa3-bb35-6f8edc038443" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -167,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vue/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="333" column="101" selection-start-line="333" selection-start-column="101" selection-end-line="333" selection-end-column="101" />
+            <state relative-caret-position="351">
+              <caret line="287" column="54" selection-start-line="287" selection-start-column="54" selection-end-line="287" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="28" column="80" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+            <state relative-caret-position="285">
+              <caret line="184" column="29" lean-forward="true" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -235,6 +152,7 @@
       <find>elevesCombo</find>
       <find>moyenneGlobale</find>
       <find>getEnseignant</find>
+      <find>createC</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -314,9 +232,9 @@
         <option value="$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControleurClasse.java" />
         <option value="$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEnseignant.java" />
         <option value="$PROJECT_DIR$/src/Controleur/EcoleControleur.java" />
+        <option value="$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java" />
         <option value="$PROJECT_DIR$/src/Vue/Menu.form" />
         <option value="$PROJECT_DIR$/src/Vue/Menu.java" />
-        <option value="$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java" />
       </list>
     </option>
   </component>
@@ -326,7 +244,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="154" />
     <option name="y" value="248" />
     <option name="width" value="1382" />
@@ -401,7 +319,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="331" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560102670779" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560114965195" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/javaDoc" />
@@ -470,7 +388,7 @@
       <workItem from="1559138224097" duration="1999000" />
       <workItem from="1559301771731" duration="37225000" />
       <workItem from="1559815624177" duration="23034000" />
-      <workItem from="1559908346606" duration="22571000" />
+      <workItem from="1559908346606" duration="23680000" />
     </task>
     <task id="LOCAL-00003" summary="add modele controleur detailbultin evaluation ect...">
       <created>1558690840038</created>
@@ -483,7 +401,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159662000" />
+    <option name="totallyTimeSpent" value="160771000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -495,10 +413,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49923196" visible="true" weight="0.22087745" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49923196" visible="true" weight="0.22087745" />
       <window_info id="Structure" order="1" sideWeight="0.5022523" side_tool="true" weight="0.24659607" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -507,7 +425,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.50076807" side_tool="true" weight="0.24659607" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4669739" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.04608295" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39938557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -515,7 +433,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49926794" weight="0.31797236" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32872504" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32872504" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.22734255" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073206" side_tool="true" weight="0.32838038" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3824885" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32872504" />
@@ -528,7 +446,7 @@
       <window_info anchor="right" id="Maven" order="5" weight="0.32980332" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" visible="true" weight="0.20121029" />
+      <window_info anchor="right" id="Database" order="8" weight="0.20121029" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1496,9 +1414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vue/Menu.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controleur/VueControlleur/VueControlleurEleve.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1511,20 +1426,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vue/Menu.java">
+    <entry file="file://$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="333" column="101" selection-start-line="333" selection-start-column="101" selection-end-line="333" selection-end-column="101" />
+        <state relative-caret-position="285">
+          <caret line="184" column="29" lean-forward="true" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controleur/ModelControlleur/ModeleControlleurEleve.java">
+    <entry file="file://$PROJECT_DIR$/src/Vue/Menu.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vue/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="28" column="80" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+        <state relative-caret-position="351">
+          <caret line="287" column="54" selection-start-line="287" selection-start-column="54" selection-end-line="287" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
