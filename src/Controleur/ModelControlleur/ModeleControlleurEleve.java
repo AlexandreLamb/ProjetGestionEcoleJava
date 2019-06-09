@@ -26,7 +26,7 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
         try {
             ResultSet resultSet = this.getConnexion().getConn().createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery(
-                    "SELECT * FROM eleve WHERE prenom LIKE '%"+str+"%'" +
+                    "SELECT * FROM eleve WHERE prenom LIKE '%"+str+"%'          " +
                             "OR nom LIKE '%"+str+"%'");
             while (resultSet.next()){
                 eleveArrayList.add(new Eleve(resultSet.getInt("id"),resultSet.getString("nom"),resultSet.getString("prenom")));
