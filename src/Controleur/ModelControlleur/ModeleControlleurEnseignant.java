@@ -2,6 +2,7 @@ package Controleur.ModelControlleur;
 
 import Modele.*;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -59,11 +60,46 @@ public class ModeleControlleurEnseignant extends ModeleControlleur<Enseignant>{
 
     @Override
     public boolean delete(Enseignant obj) {
-        return false;
+        try {
+            String requete = "delete from enseignant where id="+ obj.getId();
+            this.connexion.getConn().createStatement().executeUpdate(requete);
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+        return true;
     }
 
     @Override
     public boolean update(Enseignant obj) {
+
+        try {
+            PreparedStatement ps = this.getConnexion().getConn().prepareStatement(
+                    "UPDATE enseignant SET nom = ?, prenom = ?,`Classe.id` = ?,`Discipline.id`=? WHERE id = ?");
+
+            // set the preparedstatement parameters
+            ps.setString(1,obj.getNom());
+            ps.setString(2,obj.getPrenom());
+            ps.setInt(3,obj.getClasse().getIdClasse());
+            ps.setInt(4,obj.getDisciplineEnseignant().getId());
+            ps.setInt(5,obj.getId());
+
+            // call executeUpdate to execute our sql update statement
+            ps.executeUpdate();
+            ps.close();
+            PreparedStatement ps2 = this.getConnexion().getConn().prepareStatement(
+                    "UPDATE enseignement SET classeId = ? WHERE enseignantId = ?");
+
+            // set the preparedstatement parameters
+            ps2.setInt(1,obj.getClasse().getIdClasse());
+            ps2.setInt(2,obj.getId());
+            // call executeUpdate to execute our sql update statement
+            ps2.executeUpdate();
+            ps2.close();
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
         return false;
     }
 

@@ -58,7 +58,8 @@ public class ModeleControleurDetailBultin extends ModeleControlleur<DetailBullet
                 Enseignant enseignant = new ModeleControlleurEnseignant().findByEnseignement(result.getInt("Enseignement.id"));
                 String appreciation = result.getString("appreciation");
                 ArrayList<Evaluation> evaluationArrayList = new ModeleControlleurEvaluation().findEvaluationByDetailBuletin(id);
-                detailBulletin = new DetailBulletin(idDetailBultin,idBulitn,enseignant,appreciation,evaluationArrayList);
+                Double moyenneTrimestre = calculeMoyenne(evaluationArrayList);
+                detailBulletin = new DetailBulletin(idDetailBultin,idBulitn,enseignant,appreciation,evaluationArrayList,moyenneTrimestre);
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -104,6 +105,13 @@ public class ModeleControleurDetailBultin extends ModeleControlleur<DetailBullet
         }
         return  id;
     }
+    public double calculeMoyenne(ArrayList<Evaluation> evaluations){
+        double moyenne = 0;
+       for (int i =0; i < evaluations.size() ; i++){
+           moyenne += evaluations.get(i).getNote();
+       }
+       return moyenne/evaluations.size();
+    }
 
     @Override
     public ArrayList<DetailBulletin> findAll() {
@@ -122,7 +130,8 @@ public class ModeleControleurDetailBultin extends ModeleControlleur<DetailBullet
                 Enseignant enseignant = new ModeleControlleurEnseignant().findByEnseignement(result.getInt("Enseignement.id"));
                 String appreciation = result.getString("appreciation");
                 ArrayList<Evaluation> evaluationArrayList = new ModeleControlleurEvaluation().findEvaluationByDetailBuletin(id);
-                detailBulletinArrayList.add(new DetailBulletin(id,idBulitn,enseignant,appreciation,evaluationArrayList));
+                Double moyenne = calculeMoyenne(evaluationArrayList);
+                detailBulletinArrayList.add(new DetailBulletin(id,idBulitn,enseignant,appreciation,evaluationArrayList,moyenne));
             }
         }catch (SQLException e){
             e.printStackTrace();

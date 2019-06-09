@@ -7,18 +7,19 @@ public class DetailBulletin {
     private String appreciaiton;
     private Enseignant enseignant;
     private int idBultin;
-    private String moyenneTrimestrielle;
+    private Double moyenneTrimestrielle;
     private ArrayList<Evaluation> evaluationArrayList;
 
-    public DetailBulletin(int id, int idBultin, Enseignant enseignant, String appreciaiton, ArrayList<Evaluation> evaluationArrayList){
+    public DetailBulletin(int id, int idBultin, Enseignant enseignant, String appreciaiton, ArrayList<Evaluation> evaluationArrayList,Double moyenneTrimestrielle){
         this.id=id;
         this.idBultin=idBultin;
         this.appreciaiton =appreciaiton;
         this.enseignant = enseignant;
         this.evaluationArrayList= evaluationArrayList;
+        this.moyenneTrimestrielle = moyenneTrimestrielle;
     }
     public DetailBulletin(int idBultin, Enseignant enseignant){
-        this(-1,idBultin,enseignant,"",null);
+        this(-1,idBultin,enseignant,"",null,0.0);
     }
 
     public Enseignant getEnseignant() {
@@ -31,6 +32,10 @@ public class DetailBulletin {
 
     public ArrayList<Evaluation> getEvaluationArrayList() {
         return evaluationArrayList;
+    }
+
+    public Double getMoyenneTrimestrielle() {
+        return moyenneTrimestrielle;
     }
 
     public int getId() {
@@ -46,6 +51,7 @@ public class DetailBulletin {
             case 1 : return getAppreciaiton();
             case 2 : return getEnseignant();
             case 3 : return getIdBultin();
+            case 4 : return getMoyenneTrimestrielle();
             default: return "default";
         }
     }

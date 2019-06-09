@@ -11,6 +11,7 @@ public class Classe {
     private Niveaux niveauClasse;
     private AnneScolaire anneScolaire;
     private ArrayList<Eleve> eleveArrayList;
+    private double moyenne;
 
     public Classe(int idClasse, String nomClasse, Niveaux niveauClasse,AnneScolaire anneScolaire,ArrayList<Eleve> eleveArrayList){
         this.idClasse = idClasse;
@@ -26,6 +27,11 @@ public class Classe {
     public Classe(String nomClasse, Niveaux niveauClasse,AnneScolaire anneScolaire){
         this( -1, nomClasse, niveauClasse, anneScolaire, new ArrayList<>());
     }
+
+    public ArrayList<Eleve> getEleveArrayList() {
+        return eleveArrayList;
+    }
+
 
 
     public void addEleve(Eleve eleve){

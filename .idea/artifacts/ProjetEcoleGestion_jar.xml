@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProjetEcoleGestion:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjetEcoleGestion_jar</output-path>
+    <root id="archive" name="ProjetEcoleGestion.jar">
+      <element id="module-output" name="ProjetEcoleGestion" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

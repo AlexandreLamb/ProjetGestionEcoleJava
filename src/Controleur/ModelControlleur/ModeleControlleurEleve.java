@@ -52,7 +52,6 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
     public boolean update(Eleve obj) {
 
         try {
-            String requete = "UPDATE 'eleve' SET nom="+obj.getNom()+",prenom="+obj.getPrenom()+" WHERE id= "+obj.getId();
             PreparedStatement ps = this.getConnexion().getConn().prepareStatement(
                     "UPDATE eleve SET nom = ?, prenom = ? WHERE id = ?");
 
@@ -68,7 +67,7 @@ public class ModeleControlleurEleve extends ModeleControlleur<Eleve> {
             e.printStackTrace();
         }
 
-        return false;
+        return true;
     }
 
     @Override

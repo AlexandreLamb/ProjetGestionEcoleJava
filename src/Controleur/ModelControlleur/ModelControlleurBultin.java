@@ -1,6 +1,7 @@
 package Controleur.ModelControlleur;
 
 import Modele.Bulletin;
+import Modele.DetailBulletin;
 import Modele.Eleve;
 import Modele.Trimestre;
 
@@ -32,7 +33,9 @@ public class ModelControlleurBultin extends ModeleControlleur<Bulletin> {
                 Eleve eleve1 = new ModeleControlleurEleve().findEleveByInscription(result.getInt("inscription.id"));
                 Trimestre trimestre = new ModeleControlleurTrimestre().find(result.getInt("Trimestre.id"));
                 String appreciation = result.getString("appreciation");
-                bulletinArrayList.add(new Bulletin(id,appreciation,eleve1,trimestre));
+                ArrayList<DetailBulletin> detailBulletins = new ModeleControleurDetailBultin().findByBultin(id);
+                Double moyenne = calculateMoyenne(detailBulletins);
+                bulletinArrayList.add(new Bulletin(id,appreciation,eleve1,trimestre,moyenne,detailBulletins));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -53,7 +56,9 @@ public class ModelControlleurBultin extends ModeleControlleur<Bulletin> {
                 Eleve eleve1 = new ModeleControlleurEleve().findEleveByInscription(result.getInt("inscription.id"));
                 Trimestre trimestre = new ModeleControlleurTrimestre().find(result.getInt("Trimestre.id"));
                 String appreciation = result.getString("appreciation");
-                bulletin = new Bulletin(idBultin,appreciation,eleve1,trimestre);
+                ArrayList<DetailBulletin> detailBulletins = new ModeleControleurDetailBultin().findByBultin(id);
+                Double moyenne = calculateMoyenne(detailBulletins);
+                bulletin = new Bulletin(id,appreciation,eleve1,trimestre,moyenne,detailBulletins);
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -64,6 +69,13 @@ public class ModelControlleurBultin extends ModeleControlleur<Bulletin> {
     @Override
     public void create(Bulletin obj) {
 
+    }
+    public double calculateMoyenne(ArrayList<DetailBulletin> detailBulletins){
+        double moyenne = 0;
+        for (int i = 0 ; i < detailBulletins.size(); i++){
+            moyenne += detailBulletins.get(i).getMoyenneTrimestrielle();
+        }
+        return moyenne/detailBulletins.size();
     }
     public void create(int idIncription){
         try {

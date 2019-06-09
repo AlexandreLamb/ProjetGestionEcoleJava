@@ -10,6 +10,10 @@ public class Enseignant extends Personne {
         this.disciplineEnseignant = discipline;
         this.classe = classe;
     }
+    public Enseignant(int id){
+        this(id,"","",null,null);
+    }
+
     public Object getField(int index){
         switch (index){
             case 0 : return getId();

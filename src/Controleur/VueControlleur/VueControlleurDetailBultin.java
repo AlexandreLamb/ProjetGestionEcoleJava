@@ -17,7 +17,7 @@ public class VueControlleurDetailBultin extends VueControlleur<DetailBulletin> {
 
     @Override
     public int getColumnCount() {
-        return DetailBulletin.class.getDeclaredFields().length-2;
+        return DetailBulletin.class.getDeclaredFields().length-1;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package Controleur;
 
 import Controleur.ModelControlleur.ModeleControleurClasse;
+import Controleur.ReportingControlleur.Statistique;
 import Modele.*;
 import Vue.EcoleVue;
 
@@ -10,11 +11,7 @@ public class Test {
     public static void main(String[] args) {
         EcoleVue ecoleVue  =new EcoleVue();
         //System.out.println(Personne.class.getDeclaredFields()[0].getName());
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(1);
-        arrayList.add(2);
-        arrayList.add(3);
-        arrayList.add(4);
+       // Statistique.createHistoNumberEleveByClasse();
 
 
 

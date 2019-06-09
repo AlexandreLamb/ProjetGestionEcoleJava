@@ -8,6 +8,7 @@ import Modele.Niveaux;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ModeleControleurClasse extends ModeleControlleur<Classe>  {
     public ModeleControleurClasse(){
@@ -157,7 +158,6 @@ public class ModeleControleurClasse extends ModeleControlleur<Classe>  {
         }catch (SQLException e){
             System.out.println(e);
         }
-        System.out.println(eleveArrayList.size());
         return eleveArrayList;
     }
 

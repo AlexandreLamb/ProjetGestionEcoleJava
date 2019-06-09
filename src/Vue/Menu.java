@@ -1,6 +1,7 @@
 package Vue;
 
 import Controleur.ModelControlleur.*;
+import Controleur.ReportingControlleur.Statistique;
 import Controleur.VueControlleur.*;
 import Modele.*;
 
@@ -60,8 +61,9 @@ public class Menu {
     private JTable bultinTable;
     private JTable evalTable;
     private JTable detailBultinTable;
-    private JTextArea textArea1;
+    private JTextArea logtext;
     private JLabel log;
+    private JLabel moyenne;
     private JTable infosNoteTable;
 
     public Menu() {
@@ -87,6 +89,8 @@ public class Menu {
        comboTrimestre.addItem(2);
        comboTrimestre.addItem(3);
 
+       moyenne.setText("Moyenne : " +new ModeleControlleurEvaluation().moyenneAllEval());
+
         table2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -99,6 +103,7 @@ public class Menu {
                 formattedTextField3.setValue(eleve.getId());
                 formattedTextField3.setEditable(false);
                 bultinTable.setModel(new VueControlleurBultin(eleve));
+                Statistique.createHistoNoteEleve(eleve);
 
             }
         });
@@ -120,9 +125,11 @@ public class Menu {
                 VueControlleurEleve vueControlleurEleve = null;
                if(comboBox1.getSelectedItem().toString() == "Tout les elves"){
                      vueControlleurEleve = new VueControlleurEleve();
+                     moyenne.setText("Moyenne : "+new ModeleControlleurEvaluation().moyenneAllEval());
                 }else {
                     Classe classe = (Classe) comboBox1.getSelectedItem();
                      vueControlleurEleve = new VueControlleurEleve(modeleControleurClasse.getClasseEleve(classe.getIdClasse()));
+                     moyenne.setText("Moyenne : "+new ModeleControlleurEvaluation().moyenneAllEvalByClasse(classe));
                 }
 
                 table2.setModel(vueControlleurEleve);
@@ -154,6 +161,7 @@ public class Menu {
                         Classe classe = (Classe)  classeCombo.getSelectedItem();
 
                         modeleControlleurEleve.inscriptionEleve(eleve,classe.getIdClasse());
+                        modeleControlleurEleve.findElevesNoInscrit().forEach((eleveNoInscrit -> elevesCombo.addItem(eleveNoInscrit)));
 
             }
         });
@@ -172,6 +180,7 @@ public class Menu {
                 jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jFrame.pack();
                 jFrame.setVisible(true);*/
+               updateLog("");
             }
         });
         deleteButton.addActionListener(new ActionListener() {
@@ -284,6 +293,7 @@ public class Menu {
                 int id = (int) bultinTable.getValueAt(bultinTable.rowAtPoint(e.getPoint()),0);
                 Bulletin bulletin = new ModelControlleurBultin().find(id);
                 detailBultinTable.setModel(new VueControlleurDetailBultin(bulletin));
+                Statistique.createHistoDetailBuletin(bulletin);
 
             }
         });
@@ -296,10 +306,39 @@ public class Menu {
 
             }
         });
+        deleteProf.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ModeleControlleurEnseignant().delete(new Enseignant(Integer.parseInt(idEnseigant.getText())));
+                idEnseigant.setValue(null);
+                nomEnseignant.setValue(null);
+                prenomEnseignant.setValue(null);
+                table1.setModel(new VueContrlleurEnseignant());
+
+            }
+        });
+        updateProf.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Classe classe = (Classe) comboClasseEnseignant.getSelectedItem();
+                Discipline discipline = (Discipline) combDiscipline.getSelectedItem();
+                String nom = nomEnseignant.getText();
+                String prenom = prenomEnseignant.getText();
+                int id =Integer.parseInt( idEnseigant.getText());
+                new ModeleControlleurEnseignant().update(new Enseignant(id,nom,prenom,discipline,classe));
+            }
+        });
+    }
+    public void updateLog(String log){
+        logtext.append("test\n");
+
     }
 
 
     private void createUIComponents() {
+        logtext = new JTextArea();
+        logtext.setEnabled(true);
+        logtext.setEditable(false);
         table2 = new JTable(new VueControlleurEleve());
         table2.setAutoCreateRowSorter(true);
 
