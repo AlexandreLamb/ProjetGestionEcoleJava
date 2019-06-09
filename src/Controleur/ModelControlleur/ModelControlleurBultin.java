@@ -6,6 +6,7 @@ import Modele.Eleve;
 import Modele.Trimestre;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -99,7 +100,22 @@ public class ModelControlleurBultin extends ModeleControlleur<Bulletin> {
 
     @Override
     public boolean update(Bulletin obj) {
-        return false;
+        try {
+            PreparedStatement ps = this.getConnexion().getConn().prepareStatement(
+                    "UPDATE bulletin SET appreciation = ? WHERE id = ?");
+
+            // set the preparedstatement parameters
+            ps.setString(1,obj.getAppreciation());
+            ps.setInt(2,obj.getId());
+
+            // call executeUpdate to execute our sql update statement
+            ps.executeUpdate();
+            ps.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
 

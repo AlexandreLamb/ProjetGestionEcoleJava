@@ -61,6 +61,12 @@ public class Menu {
     private JTextArea logtext;
     private JLabel moyenne;
     private JButton search;
+    private JComboBox ApreBuletin;
+    private JComboBox detailbultinCombo;
+    private JFormattedTextField apreDetailBultinText;
+    private JFormattedTextField appreBultinText;
+    private JComboBox eleveAppre;
+    private JButton UpdateAppre;
     private JTable infosNoteTable;
 
     public Menu() {
@@ -101,6 +107,14 @@ public class Menu {
                 formattedTextField3.setEditable(false);
                 bultinTable.setModel(new VueControlleurBultin(eleve));
                 Statistique.createHistoNoteEleve(eleve);
+                eleveAppre.setSelectedItem(eleve);
+                new ModelControlleurBultin().findAllBulletinByEleve(eleve).forEach((bulletin -> {
+                    ApreBuletin.addItem(bulletin);
+                    new ModeleControleurDetailBultin().findByBultin(bulletin.getId()).forEach((detailBulletin -> {
+                        detailbultinCombo.addItem(detailBulletin);
+                    }));
+
+                }));
 
             }
         });
@@ -337,6 +351,18 @@ public class Menu {
                 table2.setModel(new VueControlleurEleve(new ModeleControlleurEleve().findBySearch(str)));
             }
         });
+        UpdateAppre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DetailBulletin detailBulletin = (DetailBulletin) detailbultinCombo.getSelectedItem();
+                detailBulletin.setAppreciaiton(apreDetailBultinText.getText());
+                new ModeleControleurDetailBultin().update(detailBulletin);
+
+                Bulletin bulletin = (Bulletin) ApreBuletin.getSelectedItem();
+                bulletin.setAppreciation(appreBultinText.getText());
+                new ModelControlleurBultin().update(bulletin);
+            }
+        });
     }
     public void updateLog(String log){
         logtext.append("test\n");
@@ -374,30 +400,32 @@ public class Menu {
         comboTriEval = new JComboBox();
         professeurCombo = new JComboBox();
         eleveCombo = new JComboBox();
+try {
+    new ModeleControlleurTrimestre().findAll().forEach((trimestre -> {
+        comboTriEnCours1.addItem(trimestre);
+        comboTriEnCours2.addItem(trimestre);
+        comboTriEnCours3.addItem(trimestre);
+        comboTriEval.addItem(trimestre);
+    }));
 
-        new ModeleControlleurTrimestre().findAll().forEach((trimestre -> {
-            comboTriEnCours1.addItem(trimestre);
-            comboTriEnCours2.addItem(trimestre);
-            comboTriEnCours3.addItem(trimestre);
-            comboTriEval.addItem(trimestre);
-        }));
+    new ModelControlleurAnnee().findAll().forEach((anneScolaire -> {
+        anneClasse.addItem(anneScolaire);
+        comboAnne.addItem(anneScolaire);
+        comboAnneescoCour.addItem(anneScolaire);
+    }));
+    new ModelControlleurNiveau().findAll().forEach((niveaux -> {
+        niveauClasse.addItem(niveaux);
+    }));
+    new ModeleControlleurEnseignant().findAll().forEach((enseignant -> {
+        professeurCombo.addItem(enseignant);
+    }));
+    Enseignant enseignant = (Enseignant) professeurCombo.getSelectedItem();
+    new ModeleControlleurEnseignant().getEleveByClasse(enseignant.getId()).forEach(eleve -> {
+        eleveCombo.addItem(eleve);
+    });
+}catch (NullPointerException eroor){
 
-        new ModelControlleurAnnee().findAll().forEach((anneScolaire -> {
-            anneClasse.addItem(anneScolaire);
-            comboAnne.addItem(anneScolaire);
-            comboAnneescoCour.addItem(anneScolaire);
-        }));
-        new ModelControlleurNiveau().findAll().forEach((niveaux -> {
-            niveauClasse.addItem(niveaux);
-        }));
-        new ModeleControlleurEnseignant().findAll().forEach((enseignant -> {
-            professeurCombo.addItem(enseignant);
-        }));
-        Enseignant enseignant = (Enseignant) professeurCombo.getSelectedItem();
-      new ModeleControlleurEnseignant().getEleveByClasse(enseignant.getId()).forEach(eleve -> {
-            eleveCombo.addItem(eleve);
-        });
-
+}
       try {
           AnneScolaire anneScolaire = AnneScolaire.deserialize();
           comboAnneescoCour.setSelectedItem(anneScolaire);

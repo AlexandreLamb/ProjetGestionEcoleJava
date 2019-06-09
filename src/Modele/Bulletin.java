@@ -23,6 +23,10 @@ public class Bulletin {
 
     }
 
+    public void setAppreciation(String appreciation) {
+        this.appreciation = appreciation;
+    }
+
     public String getAppreciation() {
         return appreciation;
     }
@@ -50,5 +54,9 @@ public class Bulletin {
             case 3 : return getMoyenneGlobale();
             default: return "default";
         }
+    }
+    @Override
+    public String toString() {
+        return "id : "+id + " apprecaition" + appreciation;
     }
 }

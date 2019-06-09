@@ -42,6 +42,10 @@ public class DetailBulletin {
         return id;
     }
 
+    public void setAppreciaiton(String appreciaiton) {
+        this.appreciaiton = appreciaiton;
+    }
+
     public int getIdBultin() {
         return idBultin;
     }
@@ -54,5 +58,10 @@ public class DetailBulletin {
             case 4 : return getMoyenneTrimestrielle();
             default: return "default";
         }
+    }
+
+    @Override
+    public String toString() {
+        return "id : "+id + " apprecaition" + appreciaiton;
     }
 }
